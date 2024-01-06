@@ -1,10 +1,12 @@
 package ak.telebot.amongus.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Getter
@@ -40,6 +42,9 @@ public class Lobby {
     @Column(name = "discussion_time")
     private int discussionTime = 100;
 
+    @Column(name = "discussion_at")
+    private Timestamp discussionAt;
+
     @OneToMany(mappedBy = "lobby")
     private List<Person> persons;
 
@@ -51,5 +56,27 @@ public class Lobby {
     )
     private List<Task> tasks;
 
+    @Column(name = "started_at")
+    private Timestamp startedAt;
 
+    @Column(name = "ended_at")
+    private Timestamp endedAt;
+
+    @Column(name = "tasks_done")
+    private int tasksDone = 0;
+
+    @Column(name = "alive")
+    private int alive;
+
+    @Column(name = "nuclear_at")
+    private Timestamp nuclearAt;
+
+    @Column(name = "first_is_active")
+    private boolean firstIsActive = false;
+
+    @Column(name = "second_is_active")
+    private boolean secondIsActive = false;
+
+    @Column(name = "is_turn_on")
+    private boolean isTurnOn = false;
 }

@@ -27,6 +27,15 @@ public class Person {
     @Column(name = "is_impostor")
     private boolean isImpostor;
 
+    @Column(name = "discussions")
+    private int discussions;
+
+    @Column(name = "is_alive")
+    private boolean isAlive;
+
+    @Column(name = "voted_id")
+    private Long votedId;
+
     @ManyToOne()
     @JoinColumn(name = "lobby_id", referencedColumnName = "id")
     private Lobby lobby;
